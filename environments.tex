@@ -5,3 +5,10 @@
     \noindent\tabulary{\textwidth}{@{}>{\bfseries}lL@{}}
 }
 {\endtabulary}
+
+\newenvironment{job}[1]{
+    \newenvironment{position}[2]{
+        \textit{##1} \hspace\fill ##2 \begin{itemize}
+    }{\end{itemize}}
+    \noindent\textbf{#1} \\
+}{}
