@@ -4,16 +4,25 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{tabulary}
 
 \input{constants.tex}
 \input{font.tex}
 \input{assets.tex}
-
-\begin{document}
+\input{environments.tex}
 
 \input{header.tex}
 \fancyfoot[C]{}
 
+\begin{document}
+
 \input{subheader.tex}
+
+\subsection*{Core Skills and Competencies}
+\begin{skilltabular}
+    General Skills  & Cooking, Cleaning, Organization \\
+    Speaking Skills & Fast talking, Slow talking, Chipmunk talking, Foreign accents, Talking under my breath, Shouting, whining like a baby \\
+    Others          & Eating lots of food all at once, Sleeping for 20 hours straight
+\end{skilltabular}
 
 \end{document}
