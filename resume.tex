@@ -1,3 +1,15 @@
+% This document is the template I use when building out resumes when friends or
+%   family ask for help building out their resumes. It tends to have a
+%   complete-enough quality to it, that allows for specializing, or enhancing
+%   sections when needed, but is generally sufficient using just the base
+%   template.
+% The content in the template is meant to be nothing more than a format-aware
+%   Lorem Ipsum. In places where short lists were needed, they were used, and
+%   silly content, or generally non-sensical content was used, as long as the
+%   format of the content fit with expectations of that section.
+% Note: The subheader right now is tailored for a software-focused career path,
+%   but that can easily be changed by modifying or removing the left-most
+%   minipage in the subheader.tex file.
 \documentclass[pdftex,letterpaper,10pt]{article}
 
 \usepackage[bottom=3.25cm, top=3.25cm, left=2.0cm, right=2.0cm]{geometry}
@@ -5,6 +17,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{tabulary}
+\usepackage[inline]{enumitem}
 
 \input{constants.tex}
 \input{font.tex}
@@ -14,16 +27,21 @@
 \input{header.tex}
 \fancyfoot[C]{}
 
+% \cvtrue
+\renewcommand{\baselinestretch}{1.15}
+
 \begin{document}
 %
 \input{subheader.tex}
 %
+\ifcv
 \subsection*{Core Skills and Competencies}
 \begin{skilltabular}
     General Skills  & Cooking, Cleaning, Organization \\
     Speaking Skills & Fast talking, Slow talking, Chipmunk talking, Foreign accents, Talking under my breath, Shouting, Whining like a baby \\
     Others          & Eating lots of food all at once, Sleeping for 20 hours straight
 \end{skilltabular}
+\fi
 %
 \subsection*{Work Experience}
 \begin{job}{Ministry of Silly Talks}
@@ -51,6 +69,8 @@
         I have been sleeping as a hobby for most of my professional life.
     \item[Silly Talks] A lot of my professional career has revolved around speaking, so on the side, I've also become somewhat of a silly-talker.
         Although I don't have any professional experience as a deep-talker, it is something that I've got a lot of experience in, and can hold my own in a deep-talk-off.
+    \item[Management] Although the experience doesn't come from a professional setting, I manage a guild in the recent hit game Talk Mania X.
+        I rally individuals from around the world to talk together 5 times a week so we can defeat the evils of silence.
 \end{description}
 %
 \subsection*{Education}
@@ -62,5 +82,14 @@
         \item Graduated top of class of 7 billion.
     \end{degree}
 \end{school}
+%
+\subsection*{Personal Interests}
+%
+\begin{itemize*}[itemjoin=\hspace{8pt},label={\(\bullet\)\hspace{2pt}}]
+    \item Appearing pensive
+    \item Window shopping on \href{http://treadmills.com}{treadmills.com}, and \href{http://beds.com}{beds.com}
+    \item Drinking water with my best friends on Saturdays in the rain
+    \item Setting up special programs on my treadmill to allow me to do the silliest of walks without needing any kind of professional stage to practice at home
+\end{itemize*}
 %
 \end{document}
