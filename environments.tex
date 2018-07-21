@@ -8,17 +8,18 @@
 
 \newenvironment{job}[1]{
     \newenvironment{position}[2]{
-        \textit{##1} \hspace\fill ##2 \begin{itemize}
+        \textit{##1} \hfill ##2
+        \begin{itemize}
+        \setlength\parskip\DetailParSkip
     }{\end{itemize}}
     \noindent\textbf{#1} \\
 }{}
 
 \newenvironment{school}[1]{
     \newenvironment{degree}[2]{
-        \textit{##1}
-        \hfill
-        ##2
+        \textit{##1} \hfill ##2
         \begin{itemize}
+        \setlength\parskip\DetailParSkip
     }{\item[] \end{itemize} \vspace{-\dimexpr\baselineskip*3/2\relax}}
     \noindent\textbf{#1} \\
 }{\vspace{-\dimexpr\baselineskip*2/3\relax}}
