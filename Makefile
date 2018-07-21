@@ -15,6 +15,6 @@ open:
 resume: resume.pdf
 
 clean:
-	rm -f *.toc *.synctex *.aux *.log *.synctex.gz *.lof *.upa *.upb *.out *.nav *.snm resume.pdf || echo "";
+	git clean -fX
 
 .PHONY: clean, resume, production, open
