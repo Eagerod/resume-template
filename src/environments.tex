@@ -7,19 +7,27 @@
 {\endtabulary}
 
 \newenvironment{job}[1]{%
+    \newcommand{\justposition}[2]{\textit{##1} \hfill ##2\ignorespaces}
     \newenvironment{position}[2]{%
-        \textit{##1} \hfill ##2%
+        \justposition{##1}{##2}%
+        \vspace{-\dimexpr\topsep/2\relax}
         \begin{itemize}%
         \setlength\parskip\DetailParSkip%
-    }{\end{itemize}}%
-    \noindent\textbf{#1} \\%
+    }{%
+        \end{itemize}%
+    }%
+    \noindent\textbf{#1}\\%
 }{}
 
 \newenvironment{school}[1]{%
+    \newcommand{\justdegree}[2]{\textit{##1} \hfill ##2\ignorespaces}
     \newenvironment{degree}[2]{%
-        \textit{##1} \hfill ##2%
+        \justdegree{##1}{##2}%
+        \vspace{-\dimexpr\topsep/2\relax}
         \begin{itemize}%
         \setlength\parskip\DetailParSkip%
-    }{\item[] \end{itemize} \vspace{-\dimexpr\baselineskip*3/2\relax}}%
-    \noindent\textbf{#1} \\%
-}{\vspace{-\dimexpr\baselineskip*2/3\relax}}
+    }{%
+        \end{itemize}%
+    }%
+    \noindent\textbf{#1}\\%
+}{}
