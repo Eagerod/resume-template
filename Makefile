@@ -1,20 +1,33 @@
+LATEX_COMMAND:=pdflatex
+
+BUILD_DIR:=build
+PUBLISH_DIR:=pub
+SRC_DIR:=src
+DEST_DIRS:=$(BUILD_DIR) $(PUBLISH_DIR)
+
+OUTPUT_PDFS:=resume.pdf
+PUBLISH_PDFS:=$(foreach f,$(OUTPUT_PDFS),$(PUBLISH_DIR)/$(f))
+BUILD_PDFS:=$(foreach f,$(OUTPUT_PDFS),$(BUILD_DIR)/$(f))
+
 src_file := ""
 out_file := ""
 
-resume.pdf:
-	pdflatex resume.tex
-	$(eval src_file := resume.tex)
-	$(eval out_file := resume.pdf)
+.PHONY: all
+all: $(PUBLISH_PDFS)
 
-production:
-	pdflatex $(src_file)
+.PHONY: quick
+quick: $(BUILD_PDFS)
 
-open:
-	open $(out_file)
+$(DEST_DIRS):
+	mkdir $@
 
-resume: resume.pdf
+$(PUBLISH_PDFS): $(PUBLISH_DIR)
+	cd $(SRC_DIR) && openout_any=r $(LATEX_COMMAND) -jobname=../$(basename $@) $(notdir $(basename $@)).tex
+	cd $(SRC_DIR) && openout_any=r $(LATEX_COMMAND) -jobname=../$(basename $@) $(notdir $(basename $@)).tex
 
+$(BUILD_PDFS): $(BUILD_DIR)
+	cd $(SRC_DIR) && openout_any=r $(LATEX_COMMAND) -jobname=../$(basename $@) $(notdir $(basename $@)).tex
+
+.PHONY: clean
 clean:
-	git clean -fX
-
-.PHONY: clean, resume, production, open
+	git clean -Xdf
