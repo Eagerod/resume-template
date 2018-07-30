@@ -31,3 +31,7 @@ $(BUILD_PDFS): $(BUILD_DIR)
 .PHONY: clean
 clean:
 	git clean -Xdf
+
+.PHONY: mostlyclean
+mostlyclean:
+	git clean -xdf --exclude='src/img/*'
