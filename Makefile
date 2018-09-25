@@ -26,6 +26,9 @@ all: $(PUBLISH_PDFS)
 .PHONY: quick
 quick: $(BUILD_PDFS)
 
+build/sharelatex.zip: $(BUILD_DIR) $(IMAGES)
+	cd src && zip -r ../$@ $$(find . -type f)
+
 $(DEST_DIRS) $(IMG_DIR):
 	mkdir $@
 

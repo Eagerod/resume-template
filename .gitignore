@@ -2,6 +2,7 @@
 *.log
 *.out
 *.pdf
+*.zip
 src/img
 linkedin_brand_package
 GitHub-Mark
