@@ -29,6 +29,18 @@ quick: $(BUILD_PDFS)
 build/sharelatex.zip: $(BUILD_DIR) $(IMAGES)
 	cd src && zip -r ../$@ $$(find . -type f)
 
+# Unwrap an existing build/sharelatex.zip into the src directory.
+# For loading source packages from sharelatex
+.PHONY: unzip
+unzip:
+	if [ ! -z "$$(git diff $(SRC_DIR))" ]; then \
+		echo >&2 "There are unstaged changes in the $(SRC_DIR) dir. Cannot extract."; \
+		exit -1; \
+	fi
+	rm -rf $(SRC_DIR)
+	mkdir -p $(SRC_DIR)
+	unzip build/sharelatex.zip -d $(SRC_DIR)
+
 $(DEST_DIRS) $(IMG_DIR):
 	mkdir $@
 
