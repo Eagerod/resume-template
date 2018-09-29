@@ -1,3 +1,9 @@
+% This package provides the environments that are needed to build out a resume.
+\ProvidesPackage{resume}
+
+\RequirePackage{tabulary}
+
+% Simple aligned table that puts skill titles beside lists of skills.
 \newenvironment{skilltabular}{%
     \setlength\tabcolsep{3pt}%
     \setlength\parindent{0pt}%
@@ -6,6 +12,8 @@
 }
 {\endtabulary}
 
+% Sets up a full job definition, allowing for multiple positions under one 
+%   company's name.
 \newenvironment{job}[1]{%
     \newcommand{\justposition}[2]{\textit{##1} \hfill ##2\ignorespaces}
     \newenvironment{position}[2]{%
@@ -19,6 +27,8 @@
     \noindent\textbf{#1}\\%
 }{}
 
+% Provides a similar environment to the job environment, but allows for
+%   multiple degrees under one school.
 \newenvironment{school}[1]{%
     \newcommand{\justdegree}[2]{\textit{##1} \hfill ##2\ignorespaces}
     \newenvironment{degree}[2]{%
