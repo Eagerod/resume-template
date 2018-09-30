@@ -54,6 +54,9 @@
 %   or center of the page.
 % This should be the first macro at the beginning of the document.
 \newcommand{\MakeSubheader}{%
+    \providecommand{\LeftSubheader}{}%
+    \providecommand{\CenterSubheader}{}%
+    \providecommand{\RightSubheader}{}%
     \providecommand{\SubheaderPadding}{20pt}%
     \def\OuterWidth{\maxof{\widthof{\LeftSubheader}}{\widthof{\RightSubheader}} + \SubheaderPadding}%
     \def\CenterWidth{\textwidth - (\OuterWidth) - (\OuterWidth)}%

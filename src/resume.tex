@@ -27,11 +27,22 @@
 \usepackage[T1]{fontenc}
 
 \fancyhead[L]{\href{mailto:\EmailAddress}{\EmailAddress}}
-\fancyhead[R]{\href{tel:\PhoneNumber}{\PhoneNumber}}
 \fancyhead[C]{\huge \bfseries \Name}
+\fancyhead[R]{\href{tel:\PhoneNumber}{\PhoneNumber}}
 \fancyfoot[C]{}
 
 \pagestyle{fancy}
+
+% Headers for below the main header line
+\newcommand{\LeftSubheader}{%
+    \href{https://github.com/\GitHubUsername}%
+        {\raisebox{-.25\height}{\GitHubHeader} GitHub/\GitHubUsername}%
+}
+\newcommand{\CenterSubheader}{\Address}
+\newcommand{\RightSubheader}{%
+    \href{https://www.linkedin.com/in/\LinkedInUsername}%
+        {\raisebox{-.25\height}{\LinkedInHeader} LinkedIn/\LinkedInUsername}%
+}
 
 % Specifically asked for by the compiler, likely because of how tall everything
 %   in the frame already is. Only really dictates the minimum height from the 

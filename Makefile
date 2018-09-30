@@ -17,8 +17,6 @@ IMAGES:=\
 	$(IMG_DIR)/In-Black-0p5in-TM.eps \
 	$(IMG_DIR)/GitHub-Mark.eps
 
-src_file := ""
-out_file := ""
 
 .PHONY: all
 all: $(PUBLISH_PDFS)
