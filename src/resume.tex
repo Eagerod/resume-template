@@ -21,11 +21,24 @@
 \usepackage{resume}
 
 \input{constants.tex}
-\input{font.tex}
 \input{assets.tex}
 
-\input{header.tex}
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+\fancyhead[L]{\href{mailto:\EmailAddress}{\EmailAddress}}
+\fancyhead[R]{\href{tel:\PhoneNumber}{\PhoneNumber}}
+\fancyhead[C]{\huge \bfseries \Name}
 \fancyfoot[C]{}
+
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{1.25pt}
+
+% Specifically asked for by the compiler, likely because of how tall everything
+%   in the frame already is. Only really dictates the minimum height from the 
+%   top margin.
+\setlength{\headheight}{25pt}
 
 % \cvtrue
 \renewcommand{\baselinestretch}{1.15}
