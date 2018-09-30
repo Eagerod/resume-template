@@ -7,4 +7,3 @@ It's set up to allow for users to create their CV and their resume in the same d
 # TODO:
 
 - [ ] Provide better examples of how to use `\cvtrue`. 
-- [ ] Include a Makefile target that uploads `build/sharelatex.zip` to `aleem.haji.ca/blob` so no one needs to clone the repo to have the template
