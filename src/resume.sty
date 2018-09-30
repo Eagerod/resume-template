@@ -16,10 +16,10 @@
 % Sets up a full job definition, allowing for multiple positions under one 
 %   company's name.
 \newenvironment{job}[1]{%
-    \newcommand{\justposition}[2]{\textit{##1} \hfill ##2\ignorespaces}
+    \newcommand{\justposition}[2]{\textit{##1} \hfill ##2\ignorespaces}%
     \newenvironment{position}[2]{%
         \justposition{##1}{##2}%
-        \vspace{-\dimexpr\topsep/2\relax}
+        \vspace{-\dimexpr\topsep/2\relax}%
         \begin{itemize}%
         \setlength\parskip\DetailParSkip%
     }{%
@@ -31,10 +31,10 @@
 % Provides a similar environment to the job environment, but allows for
 %   multiple degrees under one school.
 \newenvironment{school}[1]{%
-    \newcommand{\justdegree}[2]{\textit{##1} \hfill ##2\ignorespaces}
+    \newcommand{\justdegree}[2]{\textit{##1} \hfill ##2\ignorespaces}%
     \newenvironment{degree}[2]{%
         \justdegree{##1}{##2}%
-        \vspace{-\dimexpr\topsep/2\relax}
+        \vspace{-\dimexpr\topsep/2\relax}%
         \begin{itemize}%
         \setlength\parskip\DetailParSkip%
     }{%
