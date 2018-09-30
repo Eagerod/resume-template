@@ -8,9 +8,24 @@
 \def\GitHubUsername{github}
 \def\LinkedInUsername{linkedin}
 
-% Parameters that can be tuned to manage padding when resumes just fall out of
-%   one page range.
+% Left and right lower headers for below the mean header ing
+\newcommand{\LeftSubheader}{%
+    \href{https://github.com/\GitHubUsername}%
+        {\raisebox{-.25\height}{\GitHubHeader} GitHub/\GitHubUsername}%
+}
+\newcommand{\RightSubheader}{%
+    \href{https://www.linkedin.com/in/\LinkedInUsername}%
+        {\raisebox{-.25\height}{\LinkedInHeader} LinkedIn/\LinkedInUsername}%
+}
+
+% Parameters that can be tuned to manage padding when resumes need a little
+%   more adjustments to get the right look and feel.
+% Also can be used to tip the scales between one-pagers vs. multi-page resumes.
 \def\DetailParSkip{1pt}
+\def\SubheaderPadding{60pt}
+
+% Header with address only
+\newcommand{\CenterSubheader}{\Address}
 
 % Use this to control how much content appears on the final document. Both your
 %   resume, and curriculum vitae can be built in the same document, and can be

@@ -2,6 +2,7 @@
 \ProvidesPackage{resume}
 
 \RequirePackage{tabulary}
+\RequirePackage{calc}
 
 % Simple aligned table that puts skill titles beside lists of skills.
 \newenvironment{skilltabular}{%
@@ -45,4 +46,29 @@
 % Approx 8pt between the bottom of fancyhdr segments, and the hrule.
 % Don't know what in the code would be this height, since nothing in the source
 %   seems to include it
+% http://ctan.mirror.rafal.ca/macros/latex/contrib/fancyhdr/fancyhdr.sty
 \setlength{\headsep}{8pt}
+
+% Create the header below the header.
+% Includes three places where content can be added, either on the left, right,
+%   or center of the page.
+% This should be the first macro at the beginning of the document.
+\newcommand{\MakeSubheader}{%
+    \def\OuterWidth{\maxof{\widthof{\LeftSubheader}}{\widthof{\RightSubheader}}+ \SubheaderPadding}%
+    \def\CenterWidth{\textwidth - (\OuterWidth) - (\OuterWidth)}%
+    \noindent%
+    \begin{minipage}{\textwidth}%
+        \begin{minipage}{\OuterWidth}%
+            \LeftSubheader%
+        \end{minipage}%
+        \begin{minipage}{\CenterWidth}%
+            \begin{center}%
+                \CenterSubheader%
+            \end{center}%
+        \end{minipage}%
+        \begin{minipage}{\OuterWidth}%
+            \raggedleft%
+            \RightSubheader%
+        \end{minipage}%
+    \end{minipage}%
+}
