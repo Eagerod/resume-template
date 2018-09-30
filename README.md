@@ -7,6 +7,4 @@ It's set up to allow for users to create their CV and their resume in the same d
 # TODO:
 
 - [ ] Provide better examples of how to use `\cvtrue`. 
-- [ ] Modify the project to actually define a `.sty` file, rather than inputting the text as it is now.
 - [ ] Include a Makefile target that uploads `build/sharelatex.zip` to `aleem.haji.ca/blob` so no one needs to clone the repo to have the template
-- [ ] Move some `.tex` files into commands, rather than allowing to have their own inputtable files. Consolidate more into the .sty file. 
