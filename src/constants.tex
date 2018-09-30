@@ -1,12 +1,12 @@
 % This is where you'd set up your primary set of constants that will be used
 %   in headers, and generally throughout the document.
-\def\EmailAddress{name@domain.tld}
-\def\PhoneNumber{555-555-5555}
-\def\Name{Firstname Lastname}
-\def\Address{\mbox{12 -- 4215 Somewhere St.} \mbox{City, Province, A1B 2C3}}
+\newcommand{\EmailAddress}{name@domain.tld}
+\newcommand{\PhoneNumber}{555-555-5555}
+\newcommand{\Name}{Firstname Lastname}
+\newcommand{\Address}{\mbox{12 -- 4215 Somewhere St.} \mbox{City, Province, A1B 2C3}}
 
-\def\GitHubUsername{github}
-\def\LinkedInUsername{linkedin}
+\newcommand{\GitHubUsername}{github}
+\newcommand{\LinkedInUsername}{linkedin}
 
 % Left and right lower headers for below the mean header line
 \newcommand{\LeftSubheader}{%
@@ -21,8 +21,8 @@
 % Parameters that can be tuned to manage padding when resumes need a little
 %   more adjustments to get the right look and feel.
 % Also can be used to tip the scales between one-pagers vs. multi-page resumes.
-\def\DetailParSkip{1pt}
-\def\SubheaderPadding{60pt}
+\newcommand{\DetailParSkip}{1pt}
+\newcommand{\SubheaderPadding}{60pt}
 
 % Header with address only
 \newcommand{\CenterSubheader}{\Address}
