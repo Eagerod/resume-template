@@ -1,12 +1,14 @@
 # This makefile is provided to create the tools needed to either build this
 #   document locally, or package it up to be imported to a sharelatex
 #   deployment
-LATEX_COMMAND:=pdflatex
+LATEX_COMMAND:=lualatex
 
 BUILD_DIR:=build
 PUBLISH_DIR:=pub
 SRC_DIR:=src
 DEST_DIRS:=$(BUILD_DIR) $(PUBLISH_DIR)
+
+SRC_FILES=$(shell find $(SRC_DIR) -type f -iname "*.tex")
 
 OUTPUT_PDFS:=resume.pdf
 PUBLISH_PDFS:=$(foreach f,$(OUTPUT_PDFS),$(PUBLISH_DIR)/$(f))
@@ -24,7 +26,7 @@ all: $(PUBLISH_PDFS)
 .PHONY: quick
 quick: $(BUILD_PDFS)
 
-$(BUILD_DIR)/sharelatex.zip: $(BUILD_DIR) $(IMAGES)
+$(BUILD_DIR)/sharelatex.zip: $(BUILD_DIR) $(IMAGES) $(SRC_FILES)
 	cd $(SRC_DIR) && zip -r ../$@ $$(find . -type f)
 
 # Unwrap an existing build/sharelatex.zip into the source directory.
@@ -42,11 +44,11 @@ unzip:
 $(DEST_DIRS) $(IMG_DIR):
 	mkdir $@
 
-$(PUBLISH_PDFS): $(PUBLISH_DIR) $(IMAGES)
+$(PUBLISH_PDFS): $(PUBLISH_DIR) $(IMAGES) $(SRC_FILES)
 	cd $(SRC_DIR) && openout_any=r $(LATEX_COMMAND) -jobname=../$(basename $@) $(notdir $(basename $@)).tex
 	cd $(SRC_DIR) && openout_any=r $(LATEX_COMMAND) -jobname=../$(basename $@) $(notdir $(basename $@)).tex
 
-$(BUILD_PDFS): $(BUILD_DIR) $(IMAGES)
+$(BUILD_PDFS): $(BUILD_DIR) $(IMAGES) $(SRC_FILES)
 	cd $(SRC_DIR) && openout_any=r $(LATEX_COMMAND) -jobname=../$(basename $@) $(notdir $(basename $@)).tex
 
 .PHONY: clean
